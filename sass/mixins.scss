@@ -1,0 +1,269 @@
+@mixin col-3p{
+    padding-right: $col3pad;
+    padding-left: $col3pad;
+}
+
+@mixin col-4p{
+    padding-right: $col4pad;
+    padding-left: $col4pad;
+}
+
+@mixin col4m1{
+    margin-left: $col41lm;
+    margin-right: $col41rm;
+}
+
+@mixin col4m23{
+    margin-left: $col423;
+    margin-right: $col423;
+}
+
+@mixin col4m4{
+    margin-right: $col44rm;
+    margin-left: $col44lm;
+}
+
+@mixin iconset{
+    max-width: $iconhw;
+    max-height: $iconhw;
+    &:hover{
+         transform: rotateZ($boxrot);
+    }
+}
+
+@mixin bodyset{
+    background-color: $bodybcol;
+    color: $bodytcol;
+    text-align: $texta;
+    font-family: $pageff;
+}
+
+@mixin strongm{
+//    font-size: $strongs;
+}
+////////////////////////////////////////////////////////
+
+@mixin col3base{
+    background-color: $greyb;
+    width: $col3w;
+    float: $float;
+    margin-left: $marginl;
+    text-align: $texta;
+    margin-bottom: $col3mb;
+    padding-top: $col3pt;
+    @include col-3p;
+    height: $col3hbase;
+    color: $colc;
+    font-size: $col3fs;
+    &:hover{
+        box-shadow: $col3bs;
+        transform: translateX($con3tran);
+        background: $lgreyb;
+    }
+}
+
+@mixin col4base{
+    background-color: $greyb;
+    float: $float;
+    width: $col4w;
+    text-align: $texta;
+    @include col-4p;
+    height: $col4hbase;
+    margin-bottom: $col4mb;
+    font-size: $col4fsbase;
+    color: $colc;
+    &:hover{
+        box-shadow: $col4ins;
+        background: $lgreyb;
+    }
+}
+
+@mixin footermix{
+    background-color: $greyb;
+    color: $bodybcol;
+    width: $footw;
+    height: $footh;
+    bottom: $footbot;
+    position: $footpos;
+    margin-top: $footmt;
+}
+////////////////////////////////////////////////////////
+
+@mixin col3480{
+    @include col3base;
+    height: $col3h480;
+}
+
+@mixin col3720{
+    @include col3base;
+    height: $col3h720;
+}
+
+@mixin col31080{
+    @include col3base;
+    height: $col3h1080;
+}
+
+////////////////////////////////////////////////////////
+
+@mixin col4480{
+    @include col4base;
+    height: $col4h480;
+    font-size: $col4fs4;
+} 
+
+
+@mixin col4720{
+    @include col4base;
+    height: $col4h720;
+    font-size: $col4fs7;
+}
+
+@mixin col41080{
+    @include col4base;
+    height: $col4h1080;
+    font-size: $col4fs1;
+}
+
+////////////////////////////////////////////////////////
+
+@mixin mediabase{
+    
+    body{
+    @include bodyset;
+    }
+    
+    strong{
+    @include strongm;
+    }
+    
+    .iconic{
+    @include iconset; 
+    }
+    
+    .col-3{
+    @include col3base;
+    }
+
+    .col-41 {
+    @include col4base;
+    @include col4m1;
+    }
+
+    .col-42 {
+    @include col4base;
+    @include col4m23;
+    }
+
+    .col-43 {
+    @include col4base; 
+    @include col4m23;
+    }
+
+    .col-44 {
+    @include col4base;
+    @include col4m4;
+    }
+}
+
+@mixin media480{
+    
+    .col-3{
+        @include col3480
+    }
+    
+    .col-41 {
+        @include col4480;
+        @include col4m1;    
+    }
+
+    .col-42 {
+        @include col4480;
+        @include col4m23;
+    }
+
+    .col-43 { 
+        @include col4480;
+        @include col4m23;
+    }
+
+    .col-44 {
+        @include col4480;
+        @include col4m4;
+    }
+}
+
+
+
+@mixin media720{
+    
+    .col-3{
+    @include col3720;    
+    }
+    
+    .col-41 {
+    @include col4720;
+    @include col4m1;   
+    }
+
+    .col-42 {
+    @include col4720;
+    @include col4m23;
+    }
+
+    .col-43 { 
+    @include col4720;
+    @include col4m23;    
+    }
+
+    .col-44 {
+    @include col4720;
+    @include col4m4;
+    }    
+}
+
+
+
+@mixin media1080{
+    
+    .col-3{
+    @include col31080;    
+    }
+   
+    .col-41 {
+    @include col41080;
+    @include col4m1;
+    }
+
+    .col-42 {
+    @include col4m23;
+    @include col41080;
+    }
+
+    .col-43 { 
+    @include col4m23;
+    @include col41080;
+    }
+
+    .col-44 {
+    @include col4m4;
+    @include col41080;
+    }    
+}
+    
+@mixin mediaq{
+    
+    @include mediabase;
+    
+    @media screen and (min-width: 480px) and (max-width: 720px){
+    @include media480;
+    }
+
+@media screen and (min-width: 720px) and (max-width: 1080px){
+    @include media720;
+    } 
+
+@media screen and (min-width: 1080px){
+    @include media1080;
+    }
+} 
