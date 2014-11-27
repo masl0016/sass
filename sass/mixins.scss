@@ -27,6 +27,8 @@
     max-width: $iconhw;
     max-height: $iconhw;
     &:hover{
+        -webkit-transform: rotateZ($boxrot);
+        -ms-transform: rotateZ($boxrot);
          transform: rotateZ($boxrot);
     }
 }
@@ -57,6 +59,7 @@
     font-size: $col3fs;
     &:hover{
         box-shadow: $col3bs;
+        -webkit-transform: translateX($con3tran);
         transform: translateX($con3tran);
         background: $lgreyb;
     }
